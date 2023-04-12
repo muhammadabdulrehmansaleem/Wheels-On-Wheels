@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <!-- Own css -->
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+
+    <!-- script for signup api-->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body onload="javascript:checkUrl()">
+    <section class="container login-section">
+        <div class="login-container">
+            <div class="container logo-div">
+                <img src="../static/images/wow-logo-white.png" alt="">
+            </div>
+            <div class="container login-form-div">
+                <form class="login-form" id="form" method="post">
+                     <div class="container login-form-container">
+                        <input class="input-tag" type="username" placeholder="username" name="uname" required>
+                        <input class="input-tag" type="password" placeholder="password" name="password" required>
+                        <input class="button input-button" type="submit" value="Login" id="submit">
+                        <p style="color: rgb(210, 51, 51);" class="error-text" id="Status"></p>
+                    </div>
+                </form>
+                <div class="container signup-option">
+                    <p class="signup-text">Create new account</p>
+                    <a href="signup" class="button signup-button">Signup</a>
+                </div>
+                <div class="container signup-option">
+                    <a class="button signup-button" href="/">Back to homepage</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function checkUrl()
+        {
+            if (window.location.href.indexOf('?email=') > 0) {
+                document.getElementById("Status").innerText="User doesn't exist"
+            }
+        }
+        window.onload = checkUrl();
+        $(document).ready(function(){
+            $("#submit").on('click', function(e){
+                var formdata = $("#form").serializeArray();
+                var data = {};
+                $(formdata ).each(function(index, obj){
+                    data[obj.name] = obj.value;
+                });
+                var strname=data['name'];
+                var strpassword=data['password'];
+                data=JSON.stringify(data)
+                $.ajax({
+                    url: '/api/Login',
+                    type : "POST",
+                    data : data,
+                    dataType : 'json',
+                    contentType: "application/json; charset=utf-8",
+                    success : function(result) {
+                        if(result.error){
+                            window.location.href = '/login?email='+2;
+                        }
+                        else{
+                            window.localStorage.setItem('usr',JSON.stringify(result))
+                           // console.log(window.location.href)
+                          
+                            //console.log(window.location.href.indexOf('?page=')>9)
+                            if (window.location.href.indexOf('?page=')>9) 
+                            {
+                                console.log(window.location.href.indexOf('?page=')>9)
+                                window.location='/'
+                            }
+                            else if(window.location.href.indexOf('?seller=')>11)
+                            {
+                                window.location='/seller-dashboard'
+                            }
+                            else if(window.location.href.indexOf('?about=')>20)
+                            {
+                                console.log("jsjd")
+                                window.location='/about-us'
+                            }
+                            else if(window.location.href.indexOf('?havel=')>20)
+                            {
+                                console.log("jsjd")
+                                window.location='/model-haval'
+                            }
+                            else if(window.location.href.indexOf('?honda=')>20)
+                            {
+                                console.log("jsjd")
+                                window.location='/model-honda'
+                            }
+                            else if(window.location.href.indexOf('?hyundai=')>20)
+                            {
+                                console.log("jsjd")
+                                window.location='/model-hyundai'
+                            }
+                            else if(window.location.href.indexOf('?kia=')>20)
+                            {
+                                console.log("jsjd")
+                                window.location='/model-kia'
+                            }
+                            else if(window.location.href.indexOf('?mg=')>20)
+                            {
+                                console.log("jsjd")
+                                window.location='/model-MG'
+                            }
+                            else if(window.location.href.indexOf('?pugeot=')>20)
+                            {
+                                console.log("jsjd")
+                                window.location='/model-pugeot'
+                            }
+                            else if(window.location.href.indexOf('?suzuki=')>20)
+                            {
+                                console.log("jsjd")
+                                window.location='/model-suzuki'
+                            }
+                            else if(window.location.href.indexOf('?toyota=')>20)
+                            {
+                                console.log("jsjd")
+                                window.location='/model-toyota'
+                            }
+                            else if(window.location.href.indexOf('?get-ads=')>20)
+                            {
+                                console.log("jsjd")
+                                window.location='/get-ads'
+                            }
+                            else{
+                                console.log("here")
+                                window.location = '/';
+                            }
+                           
+                            // window.localStorage.setItem('usr',JSON.stringify(result))\
+                            // JSON.parse(window.localStorage.getItem('usr'))
+                        }
+                    },
+                    error: function(xhr, resp, text) {
+                        console.log(xhr, resp, text);
+                    }
+                })
+            });
+        });
+    </script>
+</body>
+</html>

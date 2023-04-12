@@ -1,0 +1,126 @@
+body{
+    height: 860px;
+}
+
+.post-ad-section{
+    padding: 60px 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../images/slideshow/slideshow3.jpg');
+    background-size: auto auto;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.post-ad-container{
+    padding: 30px 0px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #132027c0;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.7);
+}
+
+.title-container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-container h1{
+    color: #FDFDFF;
+}
+
+.title-container img{
+    height: 200px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.my-form-input{
+    display: block;
+    width: 100%;
+    padding: 4px 8px;
+    font-size: 16px;
+    color: #132027;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    outline: none;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+input[type="file"]{
+    cursor: pointer;
+    background-color: #FDFDFF;
+}
+
+.my-button{
+    color: #FDFDFF;
+    border: 2px solid #FDFDFF;
+    padding: 4px 8px;
+    background-color: #62929e00;
+
+    transition: background-color 0.5s;
+}
+
+.my-button:hover{
+    background-color: #62929e;
+}
+
+.homepage-link{
+    width: 100%;
+    color: #FDFDFF;
+}
+
+.homepage-link:hover{
+    color: #FDFDFF;
+    text-decoration: none;
+}
+
+.home-button-container{
+    border: 2px solid #FDFDFF;
+    padding: 4px 8px;
+    background-color: #62929e00;
+
+    transition: background-color 0.5s;
+}
+
+.home-button-container:hover{
+    background-color: #62929E;
+}
+
+.home-button-container p{
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.success-msg{
+    color: #FDFDFF;
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (max-width: 900px){
+    .post-ad-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .title-container{
+        display: none;
+    }
+    .post-ad-section{
+        padding: 30px 30px;
+    }
+    .post-ad-container{
+        padding: 16px 0px;
+    }
+}

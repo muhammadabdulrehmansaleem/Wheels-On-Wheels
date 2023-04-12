@@ -1,0 +1,116 @@
+body{
+    margin: 0px !important;
+    font-family: "Montserrat", sans-serif;
+    padding: 0;
+}
+
+.login-section{
+    height: 100vh;
+    background-image: url('../images/slideshow/slideshow3.jpg');
+    background-size: auto auto;
+    background-position: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    background-color: #132027c0;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.7);
+}
+
+.logo-div{
+    height: 560px;
+    width: 500px;
+    visibility:visible;
+}
+
+.logo-div img{
+    height: 200px;
+    opacity: 0.7;
+}
+
+.login-form-div{
+    height: 620px;
+    width: 500px;
+}
+
+.login-form{
+    height: 380px;
+    width: 400px;
+}
+
+input[type=username],
+input[type=password],
+input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 18px;
+    color: #132027;
+    letter-spacing: 1px;
+    margin: 8px 0;
+    outline: none;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.button {
+    background-color: #62929E;
+    color: white;
+    padding: 14px 0px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+
+    transition: background-color 0.5s;
+}
+
+.input-button{
+    letter-spacing: 1px;
+}
+
+.button:hover {
+    background-color: #40707c;
+}
+
+.signup-button{
+    text-decoration: none;
+    text-align: center;
+    width: 400px;
+    background-color: #40707c00;
+    border: 2px solid #FDFDFF;
+}
+
+.signup-text{
+    text-align: center;
+    font-size: 16px;
+    color: #FDFDFF;
+}
+
+@media (max-width: 1040px) {
+    .login-container{ grid-template-columns: repeat(1, 1fr); }
+    .logo-div{            
+        height: 0px;
+        width: 0px;
+        visibility:collapse
+    }
+    .login-form-div{
+        width: 310px;
+    }
+
+    .login-form{
+        width: 280px;
+    }
+    .signup-button{
+        width: 280px;
+    }
+}
